@@ -1,24 +1,22 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-// Più leggibile
+// JSX Rules
+// return single element
+// div / section / article or Fragment
+// use camelCase for html attribute
+// className instead of class
+// close every element
+// formatting
 
 function Greeting() {
   return (
-    <div>
-      <h1>hello world</h1>
-    </div>
+    <React.Fragment>
+      <div class="">
+        <h1>hello world</h1>
+      </div>
+    </React.Fragment>
   );
 }
-
-// Più veloce
-
-// const Greeting = () => {
-//   return React.createElement(
-//     "div",
-//     {},
-//     React.createElement("h1", {}, "hello world")
-//   );
-// };
 
 ReactDom.render(<Greeting />, document.getElementById("root"));
