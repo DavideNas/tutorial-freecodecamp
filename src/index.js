@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDom from "react-dom";
+import "./index.css";
 
-// Sample Mini Book Project
+// CSS Basics (index.css)
 
 function BookList() {
   return (
-    <section>
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
       <Book />
       <Book />
       <Book />
@@ -16,7 +22,7 @@ function BookList() {
 // Component for book
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <Image />
       <Title />
       <Author />
