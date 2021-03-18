@@ -1,23 +1,39 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-// Nested Components, React Tool
+// Sample Mini Book Project
 
-function Greeting() {
+function BookList() {
   return (
-    <div>
-      <Person />
-      <Message />
-    </div>
+    <section>
+      <Book />
+      <Book />
+      <Book />
+    </section>
   );
 }
 
-// first component
-const Person = () => <h2>David</h2>;
-
-// second component
-const Message = () => {
-  return <p>It's a good day to learn React</p>;
+// Component for book
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
 };
 
-ReactDom.render(<Greeting />, document.getElementById("root"));
+// Compoonent for image
+const Image = () => (
+  <img
+    src="https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg"
+    alt=""
+  />
+);
+// component for the title
+const Title = () => <h1>I Love You to the Moon and Back</h1>;
+// component for the author
+const Author = () => <h4>Amelia Hepworth</h4>;
+
+ReactDom.render(<BookList />, document.getElementById("root"));
