@@ -2,12 +2,12 @@ import React from "react";
 import ReactDom from "react-dom";
 import "./index.css";
 
-// props form structured objects
+// props destructured
 
 const firstBook = {
   img:
     "https://images-na.ssl-images-amazon.com/images/I/71QuWEIWHlL._AC_UL200_SR200,200_.jpg",
-  title: "Dog Man: Mothering Heights: From the Creator of Captain Underpants",
+  title: "Dog Man: Mothering Heights",
   author: "Dav Pilkey",
 };
 
@@ -35,13 +35,15 @@ function BookList() {
   );
 }
 
-// book component are display in the same way
-const Book = (props) => {
+// destructuring props , is auto-spread through variables
+const Book = ({ img, title, author }) => {
+  // const { img, title, author } = props;  // must to be Book = (props)
+  // prev 2 lines make the same operation
   return (
     <article className="book">
-      <img src={props.img} alt="" />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   );
 };
