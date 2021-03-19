@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import "./index.css";
 
-// Iteration of Books list
+// Event Basic
 
 // delete fistBook and secondBook objects creating a list for both
 const books = [
@@ -30,39 +30,44 @@ const books = [
 ];
 
 function BookList() {
+  // attribute, eventHandler
+  // onClick, onMouseOver
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book key={book.id} onebook={book} />;
-        /* alternative for ID is:
-        books.map((book, index) =>
-        key={index}
-        but index change as array change */
-
-        /* alternative 1 to pass PARAMS is:
-        PARAMS pt 1
-        key={book.id} {...book} */
+        return <Book key={book.id} {...book} />;
       })}
     </section>
   );
 }
 
-const Book = (props) => {
-  /*
-  alternative 1 PARAMS pt 2
-  const { img, title, author } = props; 
-  */
+const Book = ({ img, title, author }) => {
+  // simple onclick event pt 1
+  // const clickHandler = () => {
+  //  alert("You like it");
+  // };
 
-  /*
-  alternative 2 PARAMS pt 2
-  const const Book = ({ img, title, author }) => {
-  */
-  const { img, title, author } = props.onebook;
+  // onclick event with params pt 1
+  const clickHandler = (myTitle) => {
+    alert("You like: \n" + myTitle);
+  };
   return (
     <article className="book">
       <img src={img} alt="" />
-      <h1>{title}</h1>
+      <h1 onClick={() => console.log(author)}>{title}</h1>
       <h4>{author}</h4>
+      <button
+        type="button"
+        // simple onclick event pt 2
+        // onClick={clickHandler}
+
+        // onclick event with params pt 2
+        onClick={() => {
+          clickHandler(title);
+        }}
+      >
+        Like
+      </button>
     </article>
   );
 };
