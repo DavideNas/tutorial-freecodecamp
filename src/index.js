@@ -21,17 +21,22 @@ const books = [
   },
 ];
 
-const ships = ["Nina", "Pinta", "Santa Maria"];
-// .map method get every element (ships) to single one (ship) and save to new object (newShips)
-const newShips = ships.map((ship) => {
-  // to render every element in <h1>
-  return <h1>{ship}</h1>;
-  //console.log(name);
-});
-console.log(newShips);
 function BookList() {
-  // printing newShips show me each 'ship' into <h1> tag
-  return <section className="booklist">{newShips}</section>;
+  return (
+    <section className="booklist">
+      {books.map((book) => {
+        //console.log(book);
+        const { img, title, author } = book;
+        return (
+          // to print every value I map
+          <div>
+            <h3>{title}</h3>
+            <h6>{author}</h6>
+          </div>
+        );
+      })}
+    </section>
+  );
 }
 
 const Book = ({ img, title, author }) => {
