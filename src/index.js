@@ -2,35 +2,46 @@ import React from "react";
 import ReactDom from "react-dom";
 import "./index.css";
 
-// props
+// props form structured objects
 
-const author = "Amelia Hepworth";
-const title = "I Love You to the Moon and Back";
-const img =
-  "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg";
+const firstBook = {
+  img:
+    "https://images-na.ssl-images-amazon.com/images/I/71QuWEIWHlL._AC_UL200_SR200,200_.jpg",
+  title: "Dog Man: Mothering Heights: From the Creator of Captain Underpants",
+  author: "Dav Pilkey",
+};
+
+const secondBook = {
+  author: "Amelia Hepworth",
+  title: "I Love You to the Moon and Back",
+  img:
+    "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",
+};
 
 function BookList() {
   return (
     <section className="booklist">
-      <Book job="writer" />
-      <Book title="random title" number={22} />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   );
 }
 
-// value out of component
+// book component are display in the same way
 const Book = (props) => {
-  console.log(props);
-  // value inside component (it change visibility)
   return (
     <article className="book">
-      <img src={img} alt="" />
-      <h1>{title}</h1>
-      <h4>{author}</h4>
-      {/*props are printed only when are passed to component */}
-      <p>{props.job}</p>
-      <p>{props.title}</p>
-      <p>{props.number}</p>
+      <img src={props.img} alt="" />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   );
 };
