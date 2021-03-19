@@ -2,36 +2,12 @@ import React from "react";
 import ReactDom from "react-dom";
 import "./index.css";
 
-// Event Basic
+import { books } from "./books";
 
-// delete fistBook and secondBook objects creating a list for both
-const books = [
-  {
-    id: 1,
-    img:
-      "https://images-na.ssl-images-amazon.com/images/I/71QuWEIWHlL._AC_UL200_SR200,200_.jpg",
-    title: "Dog Man: Mothering Heights",
-    author: "Dav Pilkey",
-  },
-  {
-    id: 2,
-    author: "Amelia Hepworth",
-    title: "I Love You to the Moon and Back",
-    img:
-      "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",
-  },
-  {
-    id: 3,
-    author: "Alyssa Satin Capucilli",
-    title: "Biscuit's Pet & Play Easter",
-    img:
-      "https://images-na.ssl-images-amazon.com/images/I/51gIBBYlqNL._AC_UL200_SR200,200_.jpg",
-  },
-];
+// import statement
 
 function BookList() {
-  // attribute, eventHandler
-  // onClick, onMouseOver
+  // saparate list to a file
   return (
     <section className="booklist">
       {books.map((book) => {
@@ -52,7 +28,12 @@ const Book = ({ img, title, author }) => {
     alert("You like: \n" + myTitle);
   };
   return (
-    <article className="book">
+    <article
+      className="book"
+      onMouseOver={() => {
+        console.log(title);
+      }}
+    >
       <img src={img} alt="" />
       <h1 onClick={() => console.log(author)}>{title}</h1>
       <h4>{author}</h4>
