@@ -4,53 +4,22 @@ import "./index.css";
 
 import { books } from "./books";
 
-// import statement
+// component to another file is import as Book
+import Book from "./Book";
+
+// import OneBook from './Book'
+// is valid but must change also to JSX tag name
+// as <OneBook />
 
 function BookList() {
-  // saparate list to a file
   return (
     <section className="booklist">
       {books.map((book) => {
+        // this is read as before
         return <Book key={book.id} {...book} />;
       })}
     </section>
   );
 }
-
-const Book = ({ img, title, author }) => {
-  // simple onclick event pt 1
-  // const clickHandler = () => {
-  //  alert("You like it");
-  // };
-
-  // onclick event with params pt 1
-  const clickHandler = (myTitle) => {
-    alert("You like: \n" + myTitle);
-  };
-  return (
-    <article
-      className="book"
-      onMouseOver={() => {
-        console.log(title);
-      }}
-    >
-      <img src={img} alt="" />
-      <h1 onClick={() => console.log(author)}>{title}</h1>
-      <h4>{author}</h4>
-      <button
-        type="button"
-        // simple onclick event pt 2
-        // onClick={clickHandler}
-
-        // onclick event with params pt 2
-        onClick={() => {
-          clickHandler(title);
-        }}
-      >
-        Like
-      </button>
-    </article>
-  );
-};
 
 ReactDom.render(<BookList />, document.getElementById("root"));
